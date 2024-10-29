@@ -1,0 +1,12 @@
+
+
+
+body {
+  background-color: #f1f1d1;
+  color: rgba(35,35,35,0.75);
+  max-width: 480px;
+  margin: auto;
+}
+nav span {
+ color: rgba(35,35,35,0.75) !important;
+}
