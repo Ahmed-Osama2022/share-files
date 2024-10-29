@@ -4,8 +4,7 @@
 // ini_set('upload_max_filesize', '100000000M');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-    echo "worked";
-
+   // echo "worked";
    /*
    echo "<pre>";
   //  var_dump($_FILES['userfile']);
@@ -30,12 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             echo "Please wait while transferring the file '$fileName'...<br>";
 
             if (move_uploaded_file($fileTmpName, $targetFilePath)) {
-                echo "<h3 class='text-success'>File '$fileName' uploaded successfully.</h3>";
+                echo "<h3 class='text-success'>File '$fileName' uploaded successfully.</h3>" . '<br>' . '<hr>';
             } else {
-                echo "<h3 class='text-danger'>Error moving file '$fileName' to upload directory.</h3>";
+                echo "<h3 class='text-danger'>Error moving file '$fileName' to upload directory.</h3>"  . '<br>';
             }
         } else {
-            echo "<h3 class='text-danger'>Error uploading file '$fileName' with error code: $fileError.</h3>";
+            echo "<h3 class='text-danger'>Error uploading file '$fileName' with error code: $fileError.</h3>" . '<br>';
         }
     }
 }
