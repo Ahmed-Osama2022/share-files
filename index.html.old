@@ -44,12 +44,11 @@
             class="form-control"
             id="fileShared"
             multiple
-          
           />
         </div>
 
         <button type="submit" name="submit" id="submit" class="btn btn-success">
-          Save
+          Send
         </button>
       </div>
     </form>

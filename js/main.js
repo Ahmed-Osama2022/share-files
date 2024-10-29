@@ -10,17 +10,14 @@ const fileIn = document.getElementById("fileShared");
 // Disable the auit button by defualt
 submitBtn.setAttribute("disabled", true);
 
-if (fileIn.files.length > 0){
-        submitBtn.removeAttribute("disabled");
-  
+if (fileIn.files.length > 0) {
+    submitBtn.removeAttribute("disabled");
 } else {
-        submitBtn.setAttribute("disabled", true);
-  
+    submitBtn.setAttribute("disabled", true);
 }
 
 // Add event listener to detect file selection
 const fileHandler = e => {
-    // console.log(e.value);
     if (e.target.files.length > 0) {
         submitBtn.removeAttribute("disabled");
     } else {
