@@ -11,7 +11,10 @@ $messages = [
   "success" => "File uploaded successfully.",
   "error" => "Error uploading file.",
 ];
-//$file_status = false;
+// $file_status = false;
+// $targetFilePath = '';
+$directory = "uploads/";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
   // echo "worked";
 
@@ -62,11 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
   <link
     rel="stylesheet"
     href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="./css/style.css" />
   <script
     type="text/javascript"
     src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+  <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
   <title>Share Files</title>
 </head>
 
@@ -106,6 +110,51 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
       <button type="submit" name="submit" id="submit" class="btn btn-success">
         Send
       </button>
+
+      <!-- Show the files in the "/uploads" folder in cards-->
+      <div class="my-3">
+
+        <?php
+        $files_to_share = false;
+        $files_arr = [];
+        // Check if the directory exists
+        if (is_dir($directory)) {
+          // Scan the directory for files
+          $files_in_dir = scandir($directory);
+          // Filter out '.' and '..'
+          $files_in_dir = array_filter($files_in_dir, fn($file) => $file !== '.' && $file !== '..');
+
+          // Display the files
+          if (!empty($files_in_dir)) {
+            $files_to_share = true;
+            // echo "Files avaliable to share:<br>";
+            foreach ($files_in_dir as $file) {
+              array_push($files_arr, $file);
+              // echo $file . "<br>";
+            }
+          } else {
+            echo "<p class='fs-5'>No files avaliable to share</p>";
+          }
+        } else {
+          echo "No files avaliable to share";
+        }
+        ?>
+
+        <?php if ($files_to_share): ?>
+          <p class="fs-5 mt-5">Files avaliable to share:</p>
+          <?php foreach ($files_arr as $file): ?>
+
+            <div class="p-3 my-2 bg-white rounded border border-2 file_card d-flex justify-content-between align-items-center ">
+              <p class="fs-6 m-0 text-start"><?= $file ?></p>
+              <a href="./uploads/<?= $file ?>" class="fs-5 " download>
+                <i class="fa-solid fa-circle-down text-success fs-4"></i>
+              </a>
+
+
+            </div> <?php endforeach; ?>
+        <?php endif; ?>
+      </div>
+
     </div>
   </form>
 

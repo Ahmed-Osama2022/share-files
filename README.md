@@ -3,7 +3,7 @@
 - Can be used for sharing data between PC which work as a server and mobile phone
 
 ## NOTE:
-- Nodejs is required in this project just to make the bootstrap css work!!
+- Nodejs is required in this project to make the bootstrap css & fontawesome work!!
 - Project is made to work on port 8000, so make sure it's empty!
 
 ### Download and install requirements

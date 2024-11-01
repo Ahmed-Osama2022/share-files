@@ -10,3 +10,11 @@ body {
 nav span {
  color: rgba(35,35,35,0.75) !important;
 }
+.file_card {
+  background-color: rgba(255, 255, 255, 0.15);
+  /* background-color: ; */
+}
+.file_card a {
+  /* text-decoration: none !important; */
+  color: unset !important;  
+}
