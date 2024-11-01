@@ -2,15 +2,16 @@
 - Share files between client and server
 - Can be used for sharing data between PC which work as a server and mobile phone
 
-## NOTE:
-- Nodejs is required in this project to make the bootstrap css & fontawesome work!!
-- Project is made to work on port 8000, so make sure it's empty!
+<!-- ## NOTE: -->
+<!-- - Nodejs is required in this project to make the bootstrap css & fontawesome work!! -->
+<!-- - Project is made to work on port 8000, so make sure it's empty! -->
 
 ### Download and install requirements
 ```bash
 git clone https://github.com/Ahmed-Osama2022/share-files
 cd share-files
-npm install
+
+
 ```
 
 ### Instructions and tips
