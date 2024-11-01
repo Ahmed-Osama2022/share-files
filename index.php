@@ -12,7 +12,6 @@ $messages = [
   "error" => "Error uploading file.",
 ];
 // $file_status = false;
-// $targetFilePath = '';
 $directory = "uploads/";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
@@ -88,7 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     enctype="multipart/form-data">
     <div class="p-3 bg-light rounded shadow">
       <h2>Please upload your files!</h2>
-      <!-- <h2>Android && IOS Transfer files</h2> -->
       <div class="mb-3 mt-3">
         <label for="fileShared" class="form-label">Choose the files from your device</label>
         <input
@@ -131,10 +129,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
               // echo $file . "<br>";
             }
           } else {
-            echo "<p class='fs-5'>No files avaliable to share</p>";
+            echo "<p class='text-muted'>No files avaliable to share</p>";
           }
         } else {
-          echo "No files avaliable to share";
+          echo "<p class='text-muted'>No files avaliable to share</p>";
         }
         ?>
 
@@ -147,7 +145,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
               <a href="./uploads/<?= $file ?>" class="fs-5 " download>
                 <i class="fa-solid fa-circle-down text-success fs-4"></i>
               </a>
-
 
             </div> <?php endforeach; ?>
         <?php endif; ?>
