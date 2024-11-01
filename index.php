@@ -143,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
           <?php foreach ($files_arr as $file): ?>
 
             <div class="p-3 my-2 bg-white rounded border border-2 file_card d-flex justify-content-between align-items-center ">
-              <p class="fs-6 m-0 text-start"><?= $file ?></p>
+              <a href="./uploads/<?= $file ?>" target="__blank" class="fs-6 m-0 text-start"><?= $file ?></a>
               <a href="./uploads/<?= $file ?>" class="fs-5 " download>
                 <i class="fa-solid fa-circle-down text-success fs-4"></i>
               </a>
