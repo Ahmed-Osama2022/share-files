@@ -34,8 +34,8 @@ nav span {
     max-width: 760px;
   }
   nav img {
-  width: 54px;
-  height: 54px;
+    width: 54px;
+    height: 54px;
   }
   nav span {
     font-size: 2rem;
@@ -45,10 +45,10 @@ nav span {
   body {
     max-width: 992px;
   }
-nav img {
-  width: 54px;
-  height: 54px;
-}
+  nav img {
+    width: 54px;
+    height: 54px;
+  }
   nav span {
     font-size: 2.3rem;
   }
