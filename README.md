@@ -23,6 +23,19 @@ upload_max_filesize = 2G
 memory_limit = 3G
 ```
 
+- Make sure if you are using apache2, to edit this .conf file in:
+```bash
+sudo nano /etc/apache2/apache2.conf
+```
+- And add the following here:
+- This is an example for making "apache2 server" able to handle 2.7GB body size.
+
+```conf
+<Directory /var/www/>
+        LimitRequestBody 2903040000
+</Directory>
+```
+- Then
 ```bash
 sudo systemctl restart apache2
 ```
@@ -52,4 +65,7 @@ npm start
 ```bash
 php -S 0.0.0.0:8000
 ```
+--- 
+- If you are using apache2 server, move teh project to "your root docs folder", and make sure you started the apache2 server.
+
 ---
