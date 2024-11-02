@@ -1,4 +1,5 @@
 <?php
+include './helpers.php';
 // header('Location: index.html');
 // exit;
 
@@ -37,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
       if (move_uploaded_file($fileTmpName, $targetFilePath)) {
         $file_status = true;
+        return redirect('./');
       } else {
         $file_status = false;
       }
