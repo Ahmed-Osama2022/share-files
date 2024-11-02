@@ -1,6 +1,3 @@
-
-
-
 body {
   background-color: #f1f1d1;
   color: rgba(35,35,35,0.75);
@@ -17,4 +14,28 @@ nav span {
 .file_card a {
   /* text-decoration: none !important; */
   color: unset !important;  
+}
+@media (min-width : 992px) and (max-width: 1439px) {
+  body {
+    max-width: 760px;
+  }
+nav img {
+  width: 54px;
+  height: 54px;
+}
+  nav span {
+    font-size: 2rem;
+  }
+}
+@media (width > 1440px) {
+  body {
+    max-width: 992px;
+  }
+nav img {
+  width: 54px;
+  height: 54px;
+}
+  nav span {
+    font-size: 2.3rem;
+  }
 }
