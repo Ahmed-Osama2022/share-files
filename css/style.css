@@ -15,14 +15,28 @@ nav span {
   /* text-decoration: none !important; */
   color: unset !important;  
 }
+.file-size {
+  font-size: 0.75rem;
+}
+
+.file-name {
+  overflow-wrap: break-word;  /* Allows long words to be broken */
+  white-space: normal; /* Text will wrap onto the next line when it exceeds the container */
+}
+/* Media queries */
+@media (width < 500px) {
+  .file-name {
+    width: 70%;
+  }
+}
 @media (min-width : 992px) and (max-width: 1439px) {
   body {
     max-width: 760px;
   }
-nav img {
+  nav img {
   width: 54px;
   height: 54px;
-}
+  }
   nav span {
     font-size: 2rem;
   }

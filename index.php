@@ -120,7 +120,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             // echo "Files avaliable to share:<br>";
             foreach ($files_in_dir as $file) {
               array_push($files_arr, $file);
-              // echo $file . "<br>";
+              // files_sort($files_arr, $directory);
+
+
             }
           } else {
             echo "<p class='text-muted'>No files avaliable to share</p>";
@@ -135,10 +137,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
           <?php foreach ($files_arr as $file): ?>
 
             <div class="p-3 my-2 bg-white rounded border border-2 file_card d-flex justify-content-between align-items-center ">
-              <a href="./uploads/<?= $file ?>" target="__blank" class="fs-6 m-0 text-start"><?= $file ?></a>
-              <a href="./uploads/<?= $file ?>" class="fs-5 " download>
-                <i class="fa-solid fa-circle-down text-success fs-4"></i>
-              </a>
+              <a href="./uploads/<?= $file ?>" target="__blank" class="fs-6 m-0 text-start file-name"><?= $file ?></a>
+              <div class="d-flex align-items-center">
+                <p class="text-muted pe-2 my-1 file-size"><?= get_file_size($file, $directory); ?></p>
+                <a href="./uploads/<?= $file ?>" class="fs-5 " download>
+                  <i class="fa-solid fa-circle-down text-success fs-4"></i>
+                </a>
+              </div>
 
             </div> <?php endforeach; ?>
         <?php endif; ?>
