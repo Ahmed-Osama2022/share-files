@@ -3,6 +3,12 @@ include './helpers.php';
 // header('Location: index.html');
 // exit;
 
+/**
+ * Disable Caching with HTTP Headers
+ */
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+header("Pragma: no-cache"); // HTTP 1.0
+header("Expires: 0"); // Proxies
 // Set upload limits in the script (optional; requires php.ini changes for large uploads)
 // ini_set('post_max_size', '100000000000M');
 // ini_set('upload_max_filesize', '100000000M');
@@ -40,11 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         $file_status = true;
       } else {
         $file_status = false;
-        return;
+        // return;
       }
     } else {
       $file_status = false;
-      return;
+      // return;
     }
   }
   return redirect('./');
