@@ -38,14 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
       if (move_uploaded_file($fileTmpName, $targetFilePath)) {
         $file_status = true;
-        return redirect('./');
       } else {
         $file_status = false;
+        return;
       }
     } else {
       $file_status = false;
+      return;
     }
   }
+  return redirect('./');
 }
 ?>
 

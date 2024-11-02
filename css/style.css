@@ -41,7 +41,7 @@ nav span {
     font-size: 2rem;
   }
 }
-@media (width > 1440px) {
+@media (width >= 1440px) {
   body {
     max-width: 992px;
   }
