@@ -36,19 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
       // echo "Please wait while transferring the file '$fileName'...<br>";
 
       if (move_uploaded_file($fileTmpName, $targetFilePath)) {
-        //  echo "<h3 class='text-success'>File '$fileName' uploaded successfully.</h3>" .
-        //  "<br>";
         $file_status = true;
-
-        // "<hr>";
       } else {
-        //  echo "<h3 class='text-danger'>Error moving file '$fileName' to upload directory.</h3>" .
-        // "<br>";
         $file_status = false;
       }
     } else {
-      // echo "<h3 class='text-danger'>Error uploading file '$fileName' with error code: $fileError.</h3>" .
-      // "<br>";
       $file_status = false;
     }
   }
