@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 </head>
 
 <body>
-  <nav class="navbar bg-body-tertiary shadow-sm">
+  <nav class="navbar bg-body-tertiary shadow-sm rounded">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.php">
         <img src="./assets/logo.png" alt="Logo" width="34" height="34" />
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
   <form
     method="POST"
-    class="text-center mt-3 p-3"
+    class="text-center mt-3 p-3 p-md-0"
     enctype="multipart/form-data">
     <div class="p-3 bg-light rounded shadow">
       <h2>Please upload your files!</h2>
