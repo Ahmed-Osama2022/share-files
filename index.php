@@ -28,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
   $directory = "uploads/";
   if (!is_dir($directory)) {
     mkdir($directory, 0755, true);
-    // echo "Directory 'uploads/' created successfully<br>";
   }
 
   // Loop through each file in the 'userfile' array
@@ -57,31 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 }
 ?>
 
-<!doctype html>
-<html>
-
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="./css/bootstrap.min.css" />
-  <link rel="stylesheet" href="./css/all.min.css" />
-  <link rel="stylesheet" href="./css/style.css" />
-
-  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="./js/all.min.js"></script>
-  <title>Share Files</title>
-</head>
+<?= loadPartial('head') ?>
 
 <body>
-  <nav class="navbar bg-body-tertiary shadow-sm rounded">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.php">
-        <img src="./assets/logo.png" alt="Logo" width="34" height="34" />
-        <span class="ps-3">Share Files</span>
-      </a>
-    </div>
-  </nav>
+  <?php loadPartial('navbar'); ?>
 
   <form
     method="POST"
@@ -153,14 +131,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
                 </a>
               </div>
 
-            </div> <?php endforeach; ?>
+            </div>
+          <?php endforeach; ?>
         <?php endif; ?>
       </div>
 
     </div>
   </form>
 
-  <script src="./js/main.js" type="text/javascript" charset="utf-8"></script>
-</body>
 
-</html>
+  <?= loadPartial('footer') ?>

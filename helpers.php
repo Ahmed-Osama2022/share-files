@@ -1,6 +1,28 @@
 <?php
 
 /**
+ * Get the base path
+ */
+
+function basePath($path = '')
+{
+  return __DIR__ . '/' . $path;
+}
+
+/**
+ * Load a Partial
+ */
+
+function loadPartial($name, $data = [])
+{
+  $partialPath =  basePath("partials/{$name}.php");
+  if (file_exists($partialPath)) {
+    require $partialPath;
+  } else {
+    echo "Partial {$name} not Found!";
+  }
+}
+/**
  * Redirect to a given url
  *
  * @param string $url
