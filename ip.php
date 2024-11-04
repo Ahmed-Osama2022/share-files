@@ -2,6 +2,9 @@
 // Detect the operating system
 $os = strtolower(PHP_OS);
 
+// Decalre an embty ip value, to use later in 'qr_code.php' file.
+$ip = '';
+
 if (strpos($os, 'win') !== false) {
   // Windows system
   $networkData = shell_exec("ipconfig");
@@ -24,12 +27,10 @@ $ipAddresses = array_filter($matches[1], function ($ip) {
 
 if (!empty($ipAddresses)) {
   foreach ($ipAddresses as $ip) {
-    echo "IP Address: $ip\n";
+    // echo "IP Address: $ip\n";
   }
 } else {
   // echo "No valid IP addresses found.\n";
   // echo "Please make sure you are connected to a network first!\n";
   echo "No network avaliable to share!<br>Please make sure you are connected to a network first!";
 }
-// echo '<br />';
-// echo $_SERVER['SERVER_PORT'];
