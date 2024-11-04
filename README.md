@@ -2,16 +2,16 @@
 - Share files between client and server
 - Can be used for sharing data between PC which work as a server and mobile phone
 
-<!-- ## NOTE: -->
+## NOTE:
 <!-- - Nodejs is required in this project to make the bootstrap css & fontawesome work!! -->
 <!-- - Project is made to work on port 8000, so make sure it's empty! -->
+- composer is required in order to install the qr generator package!
 
 ### Download and install requirements
 ```bash
 git clone https://github.com/Ahmed-Osama2022/share-files
 cd share-files
-
-
+composer install
 ```
 
 ### Instructions and tips
