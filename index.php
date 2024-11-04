@@ -93,6 +93,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         Send
       </button>
 
+      <!-- Show the QR-code -->
+      <div class="qr-code-wrapper mt-3">
+        <img src='<?= $dataUri ?>' alt='Logo-qr-code' width='100' height='100' />
+        <p class="mt-1">Scan me to join</p>
+      </div>
+
+
       <!-- Show the files in the "/uploads" folder in cards-->
       <div class="my-3">
 
@@ -125,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         ?>
 
         <?php if ($files_to_share): ?>
-          <p class="fs-5 mt-5">Files avaliable to share:</p>
+          <p class="fs-5 mt-3">Files avaliable to share:</p>
           <?php foreach ($files_arr as $file): ?>
 
             <div class="p-3 my-2 bg-white rounded border border-2 file_card d-flex justify-content-between align-items-center ">

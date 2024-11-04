@@ -53,3 +53,9 @@ nav span {
     font-size: 2.3rem;
   }
 }
+@media (width >= 776px) { 
+  .qr-code-wrapper img {
+    width: 180px;
+    height: 180px;
+  }
+}
