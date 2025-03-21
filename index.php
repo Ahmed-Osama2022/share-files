@@ -28,8 +28,6 @@ $messages = [
 $directory = "uploads/";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
-  // echo "worked";
-
   // Define the target directory for uploads
   $directory = "uploads/";
   if (!is_dir($directory)) {
