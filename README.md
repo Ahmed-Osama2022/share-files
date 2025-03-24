@@ -22,6 +22,7 @@ post_max_size = 2G
 upload_max_filesize = 2G
 memory_limit = 3G
 ```
+- Make these values = ``` 5GB ``` if you need.
 
 - Make sure if you are using apache2, to edit this .conf file in:
 ```bash
@@ -35,6 +36,9 @@ sudo nano /etc/apache2/apache2.conf
         LimitRequestBody 2903040000
 </Directory>
 ```
+- Or make it ``` LimitRequestBody 5583457484 ```
+- if you want ``` >= 5GB ``` 
+
 - Then
 ```bash
 sudo systemctl restart apache2
