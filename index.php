@@ -14,7 +14,6 @@ include './qr_code.php';
 // header('Location: index.html');
 // exit;
 
-
 // Set upload limits in the script (optional; requires php.ini changes for large uploads)
 // ini_set('post_max_size', '100000000000M');
 // ini_set('upload_max_filesize', '100000000M');
@@ -119,7 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
               array_push($files_arr, $file);
               // files_sort($files_arr, $directory);
 
-
             }
           } else {
             echo "<p class='text-muted'>No files avaliable to share</p>";
@@ -130,16 +128,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         ?>
 
         <?php if ($files_to_share): ?>
+          <!-- Give the user the count of the files -->
           <p class="fs-5 mt-3">Files avaliable to share: <?= count($files_arr) ?> files</p>
 
-          <!-- Selection for all Btn -->
+          <!-- SelectAll button -->
           <div class="text-end me-3">
             <span>Select All</span>
             <input type="checkbox" class="form-check-input ms-1" id="selectAll">
           </div>
 
           <?php foreach ($files_arr as $key => $file): ?>
-
             <div class="p-3 my-2 bg-white rounded border border-2 file_card d-flex justify-content-between align-items-center ">
 
               <a href="./uploads/<?= $file ?>" target="__blank" class="fs-6 m-0 text-start file-name"> <?= $key + 1 ?> - <?= $file ?></a>
@@ -148,12 +146,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
                 <a href="./uploads/<?= $file ?>" class="fs-5 " download>
                   <i class="fa-solid fa-circle-down text-success fs-4"></i>
                 </a>
-                <!-- NEW -->
+                <!-- Checkbox for select item "Single item"-->
                 <input type="checkbox" class="form-check-input ms-3" id="./uploads/<?= $file ?>">
               </div>
 
             </div>
           <?php endforeach; ?>
+          <!-- Download Button -->
           <div class="text-end pt-2">
             <button type="button" class="btn btn-outline-success text-end" id="downloadBtn">Download selected</button>
           </div>
