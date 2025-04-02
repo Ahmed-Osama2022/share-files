@@ -94,7 +94,7 @@ let index = 0;
 downloadBtn.addEventListener('click', () => {
   console.log(selectedLinks); // Testing!
 
-  // let index = 0;
+  let index = 0;
 
   function downloadNext() {
     if (index < selectedLinks.length) {
