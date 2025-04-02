@@ -17,6 +17,10 @@ function getAllBoxes() {
 let allCheckboxes =getAllBoxes();
 const selectAllBtn = document.getElementById('selectAll');
 const downloadBtn = document.getElementById('downloadBtn');
+const filesAvaliable = document.querySelectorAll('.file-name');
+
+console.log(filesAvaliable); // Test
+
 
 let selectedLinks = [];
 
@@ -33,36 +37,46 @@ function btnState(value) {
   }
 }
 
-// State for SelectAll Btn;
-function allBtnState(value) {
-  selectAllBtn.checked = value;
-}
-
-
 // Default value for the download is set to 'disabled';
 btnState(true);
 
 /**
  * The main function for handling the check boxes
  */
+// Set a counter for the selectAll Btn
+let count = 0;
+
 allCheckboxes.forEach((el) => {
   el.addEventListener('change' ,(box) => {
     if (box.target.checked) {
-      console.log('Checked');
+      // console.log('Checked'); // Test
       selectedLinks.push(box.target.id);
+      count++;
+      console.log(selectedLinks); // Test
     } else {
-      console.log('unchecked');
+      console.log('unchecked'); // Test
       selectedLinks = selectedLinks.filter((id) => id !== box.target.id);
+      count--;
+      console.log(selectedLinks); // Test
+      
+    }
+    // console.log(count);
+    
+    // NEW: 
+    // Making sure when all of the buttons are checked => making the selectAll btn checked also
+    if ( count === filesAvaliable.length ) {
+      selectAllBtn.checked = true;
+    } else if (count < filesAvaliable.length) {
+      selectAllBtn.checked = false;
     }
 
-    if (selectedLinks.length !== 0) {
+    if (selectedLinks.length !== 0 && selectedLinks.length <= filesAvaliable.length  ) {
       btnState(false);
       // Give the user the count the selected files
       downloadBtn.innerHTML = 
       `\
       Download ${selectedLinks.length} files \
       `;
-
     } else {
       btnState(true);
       downloadBtn.innerText = 'Download selected'
@@ -77,11 +91,10 @@ allCheckboxes.forEach((el) => {
  */
 let index = 0;
 
-
 downloadBtn.addEventListener('click', () => {
   console.log(selectedLinks); // Testing!
 
-  let index = 0;
+  // let index = 0;
 
   function downloadNext() {
     if (index < selectedLinks.length) {
@@ -91,7 +104,7 @@ downloadBtn.addEventListener('click', () => {
         const a = document.createElement('a');
         a.href = el;
         a.classList.add('d-none');
-        a.download = el;
+        a.download = el.split('/').pop(); // Extract file name
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -115,33 +128,41 @@ selectAllBtn.addEventListener('change' ,(el) => {
 
     allCheckboxes.forEach((btn) => {
       // debugger;
-      btn.checked = true;
-      btn.dispatchEvent(new Event('change', { bubbles: true })); // Trigger change event
+      
+      // Trigger the function if only the button is unckecked!
+      if (btn.checked === false) {
+        btn.checked = true;
+        btn.dispatchEvent(new Event('change', { bubbles: true })); // Trigger change event
+      }
     });
-  
     
-  } else{
+  } else {
     console.log('All unchecked');
-
+    
     allCheckboxes.forEach(btn => {
-      btn.checked = false;
-      btn.dispatchEvent(new Event('change', { bubbles: true })); // Trigger change event
+      
+      // Trigger the function if only the button is unckecked!
+      if (btn.checked === true) {
+        btn.checked = false;
+        btn.dispatchEvent(new Event('change', { bubbles: true })); // Trigger change event
+      }
+
     });
   }
 })
 
-// Making sure when all of the buttons are checked => making the selectAll btn checked also
 
-// let index = 0;
+
+// let num = 0;
+// console.log(selectAllBtn.checked);
 
 // allCheckboxes.forEach(box => {
 //   if (box.checked === true){
-//     index++;
-//     console.log(index);
+    // num++;
+    // console.log(num);
 //   }
-
-//   if (index === allCheckboxes.length) {
+  
+  // if (num === allCheckboxes.length) {
 //     selectAllBtn.checked  = true;
 //   }
-
 // })
