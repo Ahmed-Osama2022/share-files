@@ -71,54 +71,6 @@ allCheckboxes.forEach((el) => {
 
 });
   
-
-/**
- * The download Btn handler function 
- */
-let index = 0;
-
-// ========================================== old ============================= //
-// downloadBtn.addEventListener('click', () => {
-  //   console.log(selectedLinks); // Testing
-  
-  //   selectedLinks.forEach(el => {
-    
-    //     function downloadNext() {
-      //       const a = document.createElement('a');
-//       a.href = el;
-//       a.classList.add  = 'd-none';
-//       a.download = el; 
-//       document.body.appendChild(a);
-//       a.click();
-
-
-//       document.body.removeChild(a);
-//       index++;
-//       setTimeout(downloadNext, 1000); // Delay to avoid browser restrictions
-//     }
-
-//     // setTimeout(() => {
-//     //   const a = document.createElement('a');
-//     //   a.href = el;
-//     //   a.classList.add  = 'd-none';
-//     //   a.download = el; 
-//     //   document.body.appendChild(a);
-//     //   a.click();
-
-//     //   index++;
-//     //   setTimeout(downloadNext, 1000); // Delay to avoid browser restrictions
-
-//     //   document.body.removeChild(a);
-//     // }, 500); // Delay each download to prevent browser blocking
-
-//   })
-
-// })
-
-// =================================================== //
-
-
-
 downloadBtn.addEventListener('click', () => {
   console.log(selectedLinks); // Testing!
 
@@ -146,6 +98,47 @@ downloadBtn.addEventListener('click', () => {
   downloadNext();
 });
 
+
+
+/**
+ * The download Btn handler function 
+ */
+// let index = 0;
+
+// downloadBtn.addEventListener('click', () => {
+//   console.log(selectedLinks); // Testing
+
+//   let index = 0;
+
+//   function downloadNext() {
+//     if (index < selectedLinks.length) {
+//       // Create and trigger a single download
+//       const el = selectedLinks[index];
+//       const a = document.createElement('a');
+//       a.href = el;
+//       a.download = el.split('/').pop(); // Extract filename
+//       document.body.appendChild(a);
+
+//       // ✅ Requires user action on mobile
+//       a.click();
+//       document.body.removeChild(a);
+
+//       index++;
+
+//       // ✅ Ask the user to proceed for the next file (fixes mobile blocking)
+//       if (index < selectedLinks.length) {
+//         setTimeout(() => {
+//           if (confirm("Download next file?")) {
+//             downloadNext();
+//           }
+//         }, 1000);
+//       }
+//     }
+//   }
+
+//   // First file download
+//   downloadNext();
+// });
 
 /**
  * Function for SelectAll button
