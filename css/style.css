@@ -1,61 +1,98 @@
 body {
   background-color: #f1f1d1;
-  color: rgba(35,35,35,0.75);
+  color: rgba(35, 35, 35, 0.75);
   max-width: 480px;
   margin: auto;
 }
+
 nav span {
- color: rgba(35,35,35,0.75) !important;
+  color: rgba(35, 35, 35, 0.75) !important;
 }
+
 .file_card {
   background-color: rgba(255, 255, 255, 0.15);
   /* background-color: ; */
 }
+
 .file_card a {
   /* text-decoration: none !important; */
-  color: unset !important;  
+  color: unset !important;
 }
+
 .file-size {
   font-size: 0.75rem;
 }
 
 .file-name {
-  overflow-wrap: break-word;  /* Allows long words to be broken */
-  white-space: normal; /* Text will wrap onto the next line when it exceeds the container */
+  overflow-wrap: break-word;
+  /* Allows long words to be broken */
+  white-space: normal;
+  /* Text will wrap onto the next line when it exceeds the container */
 }
+
 /* Media queries */
 @media (width < 500px) {
   .file-name {
     width: 70%;
   }
 }
+
 @media (min-width : 992px) and (max-width: 1439px) {
   body {
     max-width: 760px;
   }
+
   nav img {
     width: 54px;
     height: 54px;
   }
+
   nav span {
     font-size: 2rem;
   }
 }
-@media (width >= 1440px) {
+
+@media (width >=1440px) {
   body {
     max-width: 992px;
   }
+
   nav img {
     width: 54px;
     height: 54px;
   }
+
   nav span {
     font-size: 2.3rem;
   }
 }
-@media (width >= 776px) { 
+
+@media (width >=776px) {
   .qr-code-wrapper img {
     width: 180px;
     height: 180px;
   }
+}
+
+/* ================ NEW: For the Checkbox ================== */
+/* Default state */
+.form-check-input {
+  width: 1.3em;
+  height: 1.3em;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+/* Checked state */
+.form-check-input:checked {
+  background-color: rgb(32, 180, 111);
+  /* Custom checked background */
+  border-color: rgb(32, 180, 111);
+  /* Custom checked border */
+}
+
+/* Focus state */
+.form-check-input:focus {
+  box-shadow: 0 0 3px 0 rgb(32, 180, 111);
+  /* Custom focus glow */
 }

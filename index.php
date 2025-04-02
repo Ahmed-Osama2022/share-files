@@ -130,20 +130,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         ?>
 
         <?php if ($files_to_share): ?>
-          <p class="fs-5 mt-3">Files avaliable to share:</p>
-          <?php foreach ($files_arr as $file): ?>
+          <p class="fs-5 mt-3">Files avaliable to share: <?= count($files_arr) ?> files</p>
+
+          <!-- Selection for all Btn -->
+          <div class="text-end me-3">
+            <span>Select All</span>
+            <input type="checkbox" class="form-check-input ms-1" id="selectAll">
+          </div>
+
+          <?php foreach ($files_arr as $key => $file): ?>
 
             <div class="p-3 my-2 bg-white rounded border border-2 file_card d-flex justify-content-between align-items-center ">
-              <a href="./uploads/<?= $file ?>" target="__blank" class="fs-6 m-0 text-start file-name"><?= $file ?></a>
+
+              <a href="./uploads/<?= $file ?>" target="__blank" class="fs-6 m-0 text-start file-name"> <?= $key + 1 ?> - <?= $file ?></a>
               <div class="d-flex align-items-center">
                 <p class="text-muted pe-2 my-1 file-size"><?= get_file_size($file, $directory); ?></p>
                 <a href="./uploads/<?= $file ?>" class="fs-5 " download>
                   <i class="fa-solid fa-circle-down text-success fs-4"></i>
                 </a>
+                <!-- NEW -->
+                <input type="checkbox" class="form-check-input ms-3" id="./uploads/<?= $file ?>">
               </div>
 
             </div>
           <?php endforeach; ?>
+          <div class="text-end pt-2">
+            <button type="button" class="btn btn-outline-success text-end" id="downloadBtn">Download selected</button>
+          </div>
+
         <?php endif; ?>
       </div>
 
