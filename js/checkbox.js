@@ -77,47 +77,6 @@ allCheckboxes.forEach((el) => {
  */
 let index = 0;
 
-// ========================================== old ============================= //
-// downloadBtn.addEventListener('click', () => {
-  //   console.log(selectedLinks); // Testing
-  
-  //   selectedLinks.forEach(el => {
-    
-    //     function downloadNext() {
-      //       const a = document.createElement('a');
-//       a.href = el;
-//       a.classList.add  = 'd-none';
-//       a.download = el; 
-//       document.body.appendChild(a);
-//       a.click();
-
-
-//       document.body.removeChild(a);
-//       index++;
-//       setTimeout(downloadNext, 1000); // Delay to avoid browser restrictions
-//     }
-
-//     // setTimeout(() => {
-//     //   const a = document.createElement('a');
-//     //   a.href = el;
-//     //   a.classList.add  = 'd-none';
-//     //   a.download = el; 
-//     //   document.body.appendChild(a);
-//     //   a.click();
-
-//     //   index++;
-//     //   setTimeout(downloadNext, 1000); // Delay to avoid browser restrictions
-
-//     //   document.body.removeChild(a);
-//     // }, 500); // Delay each download to prevent browser blocking
-
-//   })
-
-// })
-
-// =================================================== //
-
-
 
 downloadBtn.addEventListener('click', () => {
   console.log(selectedLinks); // Testing!
@@ -132,14 +91,14 @@ downloadBtn.addEventListener('click', () => {
         const a = document.createElement('a');
         a.href = el;
         a.classList.add('d-none');
-        a.download = el.split('/').pop(); // Extract filename
+        a.download = el;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
 
         index++;
         downloadNext(); // Call the function recursively to download the next file
-      }, 1000); // 500 milli-second delay to avoid browser blocking
+      }, 500); // 500 milli-second delay to avoid browser blocking
     }
   }
 
