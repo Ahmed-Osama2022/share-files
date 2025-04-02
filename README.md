@@ -70,6 +70,6 @@ npm start
 php -S 0.0.0.0:8000
 ```
 --- 
-- If you are using apache2 server, move teh project to "your root docs folder", and make sure you started the apache2 server.
+- If you are using apache2 server, move the project to "your root docs folder", and make sure you started the apache2 server.
 
 ---
