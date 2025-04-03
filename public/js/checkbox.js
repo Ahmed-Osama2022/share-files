@@ -52,12 +52,12 @@ allCheckboxes.forEach((el) => {
       // console.log('Checked'); // Test
       selectedLinks.push(box.target.id);
       count++;
-      console.log(selectedLinks); // Test
+      // console.log(selectedLinks); // Test
     } else {
       console.log('unchecked'); // Test
       selectedLinks = selectedLinks.filter((id) => id !== box.target.id);
       count--;
-      console.log(selectedLinks); // Test
+      // console.log(selectedLinks); // Test
       
     }
     // console.log(count);
@@ -89,34 +89,54 @@ allCheckboxes.forEach((el) => {
 /**
  * The download Btn handler function 
  */
-let index = 0;
+// let index = 0;
+
+// downloadBtn.addEventListener('click', () => {
+//   console.log(selectedLinks); // Testing!
+
+//   let index = 0;
+
+//   function downloadNext() {
+//     if (index < selectedLinks.length) {
+//       const el = selectedLinks[index];
+
+//       setTimeout(() => {
+//         const a = document.createElement('a');
+//         a.href = el;
+//         a.classList.add('d-none');
+//         a.download = el.split('/').pop(); // Extract file name
+//         document.body.appendChild(a);
+//         a.click();
+//         document.body.removeChild(a);
+
+//         index++;
+//         downloadNext(); // Call the function recursively to download the next file
+//       }, 500); // 500 milli-second delay to avoid browser blocking
+//     }
+//   }
+
+//   downloadNext();
+// });
+
+
+/**
+ * | ========== The download Btn handler function => For Zip.php | ===========
+ */
 
 downloadBtn.addEventListener('click', () => {
-  console.log(selectedLinks); // Testing!
+  console.log(selectedLinks); // Test!
 
-  let index = 0;
+  /**
+   * Send an array of data to the server to zip it into one file; then return the response,
+   * The response will be the zip file;
+   * But, if the files is > 1 file => 2 files and above.
+   */
+  
 
-  function downloadNext() {
-    if (index < selectedLinks.length) {
-      const el = selectedLinks[index];
 
-      setTimeout(() => {
-        const a = document.createElement('a');
-        a.href = el;
-        a.classList.add('d-none');
-        a.download = el.split('/').pop(); // Extract file name
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
 
-        index++;
-        downloadNext(); // Call the function recursively to download the next file
-      }, 500); // 500 milli-second delay to avoid browser blocking
-    }
-  }
-
-  downloadNext();
 });
+
 
 
 /**
@@ -150,19 +170,3 @@ selectAllBtn.addEventListener('change' ,(el) => {
     });
   }
 })
-
-
-
-// let num = 0;
-// console.log(selectAllBtn.checked);
-
-// allCheckboxes.forEach(box => {
-//   if (box.checked === true){
-    // num++;
-    // console.log(num);
-//   }
-  
-  // if (num === allCheckboxes.length) {
-//     selectAllBtn.checked  = true;
-//   }
-// })

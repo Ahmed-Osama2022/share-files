@@ -9,8 +9,14 @@ header("Expires: 0"); // Proxies
 
 require 'vendor/autoload.php';
 include './helpers.php';
-include './ip.php';
-include './qr_code.php';
+// include './ip.php';
+// include './qr_code.php';
+
+include basePath('App/ip.php');
+include basePath('App/qr_code.php');
+include basePath('App/zip.php');
+
+
 // header('Location: index.html');
 // exit;
 
