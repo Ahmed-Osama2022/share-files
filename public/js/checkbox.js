@@ -89,40 +89,6 @@ allCheckboxes.forEach((el) => {
 })
 
 });
-  
-
-/**
- * The download Btn handler function 
- */
-// let index = 0;
-
-// downloadBtn.addEventListener('click', () => {
-//   console.log(selectedLinks); // Testing!
-
-//   let index = 0;
-
-//   function downloadNext() {
-//     if (index < selectedLinks.length) {
-//       const el = selectedLinks[index];
-
-//       setTimeout(() => {
-//         const a = document.createElement('a');
-//         a.href = el;
-//         a.classList.add('d-none');
-//         a.download = el.split('/').pop(); // Extract file name
-//         document.body.appendChild(a);
-//         a.click();
-//         document.body.removeChild(a);
-
-//         index++;
-//         downloadNext(); // Call the function recursively to download the next file
-//       }, 500); // 500 milli-second delay to avoid browser blocking
-//     }
-//   }
-
-//   downloadNext();
-// });
-
 
 /**
  * | ========== The download Btn handler function => For zip.php | ===========
@@ -158,20 +124,18 @@ const uploadData = async (data = []) => {
 
       a.download = result.filename;
 
-      console.log(a);
+      // console.log(a); // TEST
       
     // Some browsers need a small delay before click
     setTimeout(() => {
       a.click();
-      
+
       // Clean up after click
       setTimeout(() => {
         document.body.removeChild(a);
       }, 100);
     }, 10);
-
-
-    
+  
   } else {
     console.error(result.error);
   }
@@ -183,7 +147,6 @@ const uploadData = async (data = []) => {
 downloadBtn.addEventListener('click', () => {
   uploadData(selectedLinks);
 });
-
 
 
 /**

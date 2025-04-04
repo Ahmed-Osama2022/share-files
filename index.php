@@ -9,16 +9,9 @@ header("Expires: 0"); // Proxies
 
 require 'vendor/autoload.php';
 include './helpers.php';
-// include './ip.php';
-// include './qr_code.php';
 
 include basePath('App/ip.php');
 include basePath('App/qr_code.php');
-// include basePath('App/zip.php');
-
-
-// header('Location: index.html');
-// exit;
 
 // Set upload limits in the script (optional; requires php.ini changes for large uploads)
 // ini_set('post_max_size', '100000000000M');
@@ -123,7 +116,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             foreach ($files_in_dir as $file) {
               array_push($files_arr, $file);
               // files_sort($files_arr, $directory);
-
             }
           } else {
             echo "<p class='text-muted'>No files avaliable to share</p>";
