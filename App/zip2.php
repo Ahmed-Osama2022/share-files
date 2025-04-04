@@ -82,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       // Return download URL or success message
       echo json_encode([
         'success' => true,
-        // 
         // 'downloadUrl' => $downloadDir . $zipFilename, // BUG:
         'downloadUrl' => 'tmp' . '/' .   $zipFilename,
         'filename' => $zipFilename

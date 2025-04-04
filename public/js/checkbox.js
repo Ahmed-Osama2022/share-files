@@ -155,9 +155,8 @@ const uploadData = async (data = []) => {
       // a.download = a.split('/').pop(); // Extract file name
       document.body.appendChild(a);
       console.log(a);
-      // a.click();
-      // document.body.removeChild(a);
-
+      a.click();
+      document.body.removeChild(a);
     
   } else {
     console.error(result.error);
