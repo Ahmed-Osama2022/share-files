@@ -10,9 +10,14 @@
 /** 
  * Upload the files in the root directory fo the App
  * 
- *  */
+ */
+
+
+
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['files'])) {
+  die('POST Method');
   // Create a unique filename for the ZIP
   $zipFilename = 'download_' . uniqid() . '.zip';
   $zipPath = __DIR__ . '/tmp/' . $zipFilename;

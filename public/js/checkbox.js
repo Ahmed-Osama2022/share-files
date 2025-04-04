@@ -122,15 +122,47 @@ allCheckboxes.forEach((el) => {
 /**
  * | ========== The download Btn handler function => For Zip.php | ===========
  */
+/**
+ * Send an array of data to the server to zip it into one file; then return the response,
+  * The response will be the zip file;
+  * But, if the files is > 1 file => 2 files and above.
+  */
+
+
+const URL = '/App/zip2.php';
+
+const uploadData = async (data = []) => {
+  const response = await fetch(URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+
+
+  const result = await response.json();
+  if (!result.success) {
+    console.error(result.error);
+    // window.location.href = result.downloadUrl;
+    
+
+    
+  } else {
+    console.log(response);
+  }
+}
+
+
 
 downloadBtn.addEventListener('click', () => {
-  console.log(selectedLinks); // Test!
+  console.log(selectedLinks);
+   // Test!
+  uploadData(selectedLinks);
 
-  /**
-   * Send an array of data to the server to zip it into one file; then return the response,
-   * The response will be the zip file;
-   * But, if the files is > 1 file => 2 files and above.
-   */
+
+
+  
   
 
 

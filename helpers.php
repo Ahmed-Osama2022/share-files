@@ -65,3 +65,29 @@ function get_file_size($file, $dir = './')
   $file_size_in_bytes =  filesize($dir . '/' . $file);
   return formatFileSize($file_size_in_bytes) . "<br>";
 };
+
+
+// NEW: 
+/**
+ * For the API
+ * @param array $data
+ * @return array "json"
+ */
+function jsonData($data = [])
+{
+  // Set response header
+  header('Content-Type: application/json; charset=utf-8');
+
+  // Return JSON-encoded data
+  return json_encode($data);
+}
+
+function jsonDataResolver()
+{
+  // Get the raw POST data
+  $input = file_get_contents('php://input');
+  // Decode JSON to an associative array
+  $data = json_decode($input, true);
+
+  return $data;
+}
