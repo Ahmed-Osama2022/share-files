@@ -30,10 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // $zipFilename = 'download_' . uniqid() . '.zip';
 
-  // $zipFilename = 'Download_' . bin2hex(3) . '.zip';
+  $zipFilename = 'Download_' . bin2hex(3) . '.zip';
 
   // Or usign timestamp
-  $zipFilename = 'Download_' . date('F_i_s') . '.zip';
+  // $zipFilename = 'Download_' . date('F_i_s') . '.zip';
 
   $downloadDir = basePath('tmp');
 
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode([
       'success' => true,
       'downloadUrl' =>  $fileNames[0], // TRUE
-      'filename' => $fileNames
+      'filename' => str_replace('/uploads/', '', $fileNames[0])
     ]);
     // return;
     exit;

@@ -150,17 +150,27 @@ const uploadData = async (data = []) => {
     // For success
     console.log(result.downloadUrl);
 
-    const a = document.createElement('a');
+      const a = document.createElement('a');
       a.href = result.downloadUrl;
+      // a.innerText = result.filename;
       a.classList.add('d-none');
       document.body.appendChild(a);
-      a.download = result.downloadUrl;
-      a.click();
-      
+
+      a.download = result.filename;
+
       console.log(a);
       
-      document.body.removeChild(a);
+    // Some browsers need a small delay before click
+    setTimeout(() => {
+      a.click();
       
+      // Clean up after click
+      setTimeout(() => {
+        document.body.removeChild(a);
+      }, 100);
+    }, 10);
+
+
     
   } else {
     console.error(result.error);
