@@ -74,7 +74,7 @@ allCheckboxes.forEach((el) => {
         if (selectedLinks.length <= 1) {
           downloadBtn.innerHTML = 
         `\
-        Download ${selectedLinks.length} files \
+        Download ${selectedLinks.length} file \
         `;
         } else {
           downloadBtn.innerHTML = 
