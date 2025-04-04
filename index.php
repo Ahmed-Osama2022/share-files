@@ -13,8 +13,6 @@ include './helpers.php';
 include basePath('App/ip.php');
 include basePath('App/qr_code.php');
 
-// die($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-
 // Set upload limits in the script (optional; requires php.ini changes for large uploads)
 // ini_set('post_max_size', '100000000000M');
 // ini_set('upload_max_filesize', '100000000M');
