@@ -29,10 +29,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Create a unique filename for the ZIP
 
+  /**
+   * Different methods to create a unique '.zip' filename
+   */
+
   // $zipFilename = 'download_' . uniqid() . '.zip';
-  $zipFilename = 'download_' . bin2hex(3) . '.zip';
+
+  // $zipFilename = 'Download_' . bin2hex(3) . '.zip';
+
   // Or usign timestamp
-  $zipFilename = 'download_' . bin2hex(3) . '.zip';
+  $zipFilename = 'Download_' . date('F_i_s') . '.zip';
 
   $downloadDir = basePath('tmp');
 
