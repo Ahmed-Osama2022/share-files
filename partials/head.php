@@ -12,5 +12,5 @@
 
   <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="public/js/all.min.js"></script>
-  <title>Share Files</title>
+  <title> <?= $title ?? 'Share-Files' ?> </title>
 </head>

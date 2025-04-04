@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 }
 ?>
 
-<?= loadPartial('head') ?>
+<?= loadPartial('head', ['title' => 'Share Files']) ?>
 
 <body>
   <?php loadPartial('navbar'); ?>
