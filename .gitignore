@@ -2,3 +2,5 @@
 /uploads
 /vendor
 *.old
+*.zip
+/tmp
