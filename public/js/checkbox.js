@@ -142,21 +142,32 @@ const uploadData = async (data = []) => {
 
 
   const result = await response.json();
-  if (!result.success) {
-    console.error(result.error);
+  if (result.success) {
+    // For success
+    // console.log(response);
+    console.log(result.downloadUrl);
+
     // window.location.href = result.downloadUrl;
-    
+
+    const a = document.createElement('a');
+      a.href = result.downloadUrl;
+      a.classList.add('d-none');
+      // a.download = a.split('/').pop(); // Extract file name
+      document.body.appendChild(a);
+      console.log(a);
+      // a.click();
+      // document.body.removeChild(a);
 
     
   } else {
-    console.log(response);
+    console.error(result.error);
   }
 }
 
 
 
 downloadBtn.addEventListener('click', () => {
-  console.log(selectedLinks);
+  // console.log(selectedLinks);
    // Test!
   uploadData(selectedLinks);
 
