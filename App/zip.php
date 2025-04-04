@@ -1,78 +1,92 @@
 <?php
 
 /**
- * This is simple PHP script that handles "file uploads", creates a unique ZIP file containing,* those files, and allows the user to download it as a zip file;
- * 
+ * This is simple PHP script that handles The file names to be downloaded, creates a unique
+ * ZIP file containing, those files, and allows the user to download it as a zip file.
  */
 
-// die(basePath());
+include __DIR__ . './../helpers.php';
 
-/** 
- * Upload the files in the root directory fo the App
- * 
- */
+header('Content-Type: application/json'); // Set response type to JSON
+header('Access-Control-Allow-Origin: *'); // Enable CORS if needed
+header('Access-Control-Allow-Methods: POST'); // Allow POST requests
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Get the raw POST data
+  $fileNames = jsonDataResolver(); // return $data
 
+  // Validate input
+  if (!is_array($fileNames)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid input: expected array of filenames']);
+    exit;
+  }
 
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['files'])) {
-  die('POST Method');
   // Create a unique filename for the ZIP
-  $zipFilename = 'download_' . uniqid() . '.zip';
-  $zipPath = __DIR__ . '/tmp/' . $zipFilename;
+
+  /**
+   * Different methods to create a unique '.zip' filename
+   */
+
+  // $zipFilename = 'download_' . uniqid() . '.zip';
+
+  // $zipFilename = 'Download_' . bin2hex(3) . '.zip';
+
+  // Or usign timestamp
+  $zipFilename = 'Download_' . date('F_i_s') . '.zip';
+
+  $downloadDir = basePath('tmp');
+
+  $zipPath = basePath('tmp/' . $zipFilename);
 
   // Ensure the tmp directory exists
-  if (!file_exists(__DIR__ . '/tmp')) {
-    mkdir(__DIR__ . '/tmp', 0755, true);
+  if (!file_exists($downloadDir)) {
+    mkdir(basePath('tmp'), 0755, true);
   }
 
-  // Check if any files were uploaded
-  if (!empty($_FILES['files']['name'][0])) {
-    // Create new ZipArchive
-    $zip = new ZipArchive();
-    if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE)) {
-      // Add each uploaded file to the ZIP
-      foreach ($_FILES['files']['tmp_name'] as $key => $tmpName) {
-        if ($_FILES['files']['error'][$key] === UPLOAD_ERR_OK) {
-          $filename = basename($_FILES['files']['name'][$key]);
-          $zip->addFile($tmpName, $filename);
-        }
+  /**
+   * | ====================== 
+   * | Create new ZipArchive
+   * | ====================== 
+   */
+  $zip = new ZipArchive();
+  if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE)) {
+    $addedFiles = 0;
+
+    // Try to add each file from the list
+    foreach ($fileNames as $filename) {
+
+      $filePath = $filename; // Adjust path as needed
+
+      if (file_exists(basePath($filePath)) && basePath(is_readable($filePath))) {
+        $zip->addFile(basePath($filePath), basename($filename));
+        $addedFiles++;
       }
+    }
 
-      $zip->close();
+    $zip->close();
 
-      // Send the ZIP to the browser
-      header('Content-Type: application/zip');
-      header('Content-Disposition: attachment; filename="' . $zipFilename . '"');
-      header('Content-Length: ' . filesize($zipPath));
-      readfile($zipPath);
-
-      // Clean up (delete the temporary ZIP)
-      // unlink($zipPath);
+    if ($addedFiles > 0) {
+      // Return download URL or success message
+      echo json_encode([
+        'success' => true,
+        // 'downloadUrl' => $downloadDir . $zipFilename, // BUG:
+        'downloadUrl' => 'tmp' . '/' .   $zipFilename, // TRUE
+        'filename' => $zipFilename
+      ]);
       exit;
     } else {
-      echo "Failed to create ZIP file";
+      http_response_code(400);
+      echo json_encode(['error' => 'None of the requested files were found']);
+      exit;
     }
   } else {
-    echo "No files were uploaded";
+    http_response_code(500);
+    echo json_encode(['error' => 'Failed to create ZIP file']);
+    exit;
   }
 }
-?>
 
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-  <title>File to ZIP Converter</title>
-</head>
-
-<body>
-  <h2>Upload Files to ZIP</h2>
-  <form method="post" enctype="multipart/form-data">
-    <input type="file" name="files[]" multiple>
-    <button type="submit">Create ZIP Download</button>
-  </form>
-</body>
-
-</html> -->
+http_response_code(405);
+// To make sure the user can't request this file by GET request
+echo json_encode(['error' => 'Method not allowed']);

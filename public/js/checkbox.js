@@ -21,7 +21,6 @@ const filesAvaliable = document.querySelectorAll('.file-name');
 
 console.log(filesAvaliable); // Test
 
-
 let selectedLinks = [];
 
 /**
@@ -60,7 +59,6 @@ allCheckboxes.forEach((el) => {
       // console.log(selectedLinks); // Test
       
     }
-    // console.log(count);
     
     // NEW: 
     // Making sure when all of the buttons are checked => making the selectAll btn checked also
@@ -120,7 +118,7 @@ allCheckboxes.forEach((el) => {
 
 
 /**
- * | ========== The download Btn handler function => For Zip.php | ===========
+ * | ========== The download Btn handler function => For zip.php | ===========
  */
 /**
  * Send an array of data to the server to zip it into one file; then return the response,
@@ -128,8 +126,7 @@ allCheckboxes.forEach((el) => {
   * But, if the files is > 1 file => 2 files and above.
   */
 
-
-const URL = '/App/zip2.php';
+const URL = '/App/zip.php';
 
 const uploadData = async (data = []) => {
   const response = await fetch(URL, {
@@ -144,15 +141,11 @@ const uploadData = async (data = []) => {
   const result = await response.json();
   if (result.success) {
     // For success
-    // console.log(response);
     console.log(result.downloadUrl);
-
-    // window.location.href = result.downloadUrl;
 
     const a = document.createElement('a');
       a.href = result.downloadUrl;
       a.classList.add('d-none');
-      // a.download = a.split('/').pop(); // Extract file name
       document.body.appendChild(a);
       console.log(a);
       a.click();
@@ -163,20 +156,11 @@ const uploadData = async (data = []) => {
   }
 }
 
-
-
+/** 
+ * Running the download function
+ */
 downloadBtn.addEventListener('click', () => {
-  // console.log(selectedLinks);
-   // Test!
   uploadData(selectedLinks);
-
-
-
-  
-  
-
-
-
 });
 
 
