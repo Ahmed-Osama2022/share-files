@@ -71,10 +71,17 @@ allCheckboxes.forEach((el) => {
     if (selectedLinks.length !== 0 && selectedLinks.length <= filesAvaliable.length  ) {
       btnState(false);
       // Give the user the count the selected files
-      downloadBtn.innerHTML = 
-      `\
-      Download ${selectedLinks.length} files \
-      `;
+        if (selectedLinks.length <= 1) {
+          downloadBtn.innerHTML = 
+        `\
+        Download ${selectedLinks.length} files \
+        `;
+        } else {
+          downloadBtn.innerHTML = 
+          `\
+          Download ${selectedLinks.length} files as .zip file \
+          `;
+        }
     } else {
       btnState(true);
       downloadBtn.innerText = 'Download selected'
@@ -147,9 +154,13 @@ const uploadData = async (data = []) => {
       a.href = result.downloadUrl;
       a.classList.add('d-none');
       document.body.appendChild(a);
-      console.log(a);
+      a.download = result.downloadUrl;
       a.click();
+      
+      console.log(a);
+      
       document.body.removeChild(a);
+      
     
   } else {
     console.error(result.error);

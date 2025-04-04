@@ -14,7 +14,7 @@ include './helpers.php';
 
 include basePath('App/ip.php');
 include basePath('App/qr_code.php');
-include basePath('App/zip.php');
+// include basePath('App/zip.php');
 
 
 // header('Location: index.html');

@@ -49,6 +49,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    * | Create new ZipArchive
    * | ====================== 
    */
+  /**
+   * The response will be the zip file;
+   * But, if the files is > 1 file => 2 files and above.
+   */
+  if (count($fileNames) === 1) {
+    echo json_encode([
+      'success' => true,
+      'downloadUrl' =>  $fileNames[0], // TRUE
+      'filename' => $fileNames
+    ]);
+    // return;
+    exit;
+  }
+
   $zip = new ZipArchive();
   if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE)) {
     $addedFiles = 0;
