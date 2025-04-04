@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
       </div>
 
 
-      <!-- Show the files in the "/uploads" folder in cards-->
+      <!-- Show the files in the "./uploads" folder in cards-->
       <div class="my-3">
 
         <?php
@@ -138,14 +138,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
           <?php foreach ($files_arr as $key => $file): ?>
             <div class="p-3 my-2 bg-white rounded border border-2 file_card d-flex justify-content-between align-items-center ">
 
-              <a href="/uploads/<?= $file ?>" target="__blank" class="fs-6 m-0 text-start file-name"> <?= $key + 1 ?> - <?= $file ?></a>
+              <a href="./uploads/<?= $file ?>" target="__blank" class="fs-6 m-0 text-start file-name"> <?= $key + 1 ?> - <?= $file ?></a>
               <div class="d-flex align-items-center">
                 <p class="text-muted pe-2 my-1 file-size"><?= get_file_size($file, $directory); ?></p>
-                <a href="/uploads/<?= $file ?>" class="fs-5 " download>
+                <a href="./uploads/<?= $file ?>" class="fs-5 " download>
                   <i class="fa-solid fa-circle-down text-success fs-4"></i>
                 </a>
                 <!-- Checkbox for select item "Single item"-->
-                <input type="checkbox" class="form-check-input ms-3" id="/uploads/<?= $file ?>">
+                <input type="checkbox" class="form-check-input ms-3" id="./uploads/<?= $file ?>">
               </div>
 
             </div>
