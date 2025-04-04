@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
                   <i class="fa-solid fa-circle-down text-success fs-4"></i>
                 </a>
                 <!-- Checkbox for select item "Single item"-->
-                <input type="checkbox" class="form-check-input ms-3" id="<?= $_SERVER['HTTP_HOST'] ?>/uploads/<?= $file ?>">
+                <input type="checkbox" class="form-check-input ms-3" id="/uploads/<?= $file ?>">
               </div>
 
             </div>
