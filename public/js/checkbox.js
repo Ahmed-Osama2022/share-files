@@ -99,7 +99,7 @@ allCheckboxes.forEach((el) => {
   * But, if the files is > 1 file => 2 files and above.
   */
 
-const URL = '/App/zip.php';
+const URL = 'App/zip.php';
 
 const uploadData = async (data = []) => {
   const response = await fetch(URL, {
