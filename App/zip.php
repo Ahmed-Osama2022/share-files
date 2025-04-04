@@ -5,7 +5,8 @@
  * ZIP file containing, those files, and allows the user to download it as a zip file.
  */
 
-include __DIR__ . './../helpers.php';
+// include __DIR__ . './../helpers.php';
+include '../helpers.php';
 
 header('Content-Type: application/json'); // Set response type to JSON
 header('Access-Control-Allow-Origin: *'); // Enable CORS if needed
