@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode([
       'success' => true,
       'downloadUrl' =>  $fileNames[0], // TRUE
-      'filename' => str_replace('/uploads/', '', $fileNames[0])
+      'filename' => str_replace('uploads/', '', $fileNames[0])
     ]);
     // return;
     exit;
