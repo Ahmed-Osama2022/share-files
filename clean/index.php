@@ -21,9 +21,9 @@ if ($client_ip !== '127.0.0.1' && $client_ip !== '::1') {
   http_response_code(405);
 
   // Load the template
-  loadPartial('head', ['title' => 'Clean Script']);
+  loadPartial('/head', ['title' => 'Clean Script']);
 
-  loadPartial('error', [
+  loadPartial('/error', [
     'error' => 405
   ]);
   echo "\n";
