@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $filePath = $dir2 . DIRECTORY_SEPARATOR . $file;
     unlink($filePath);
   }
-  return redirect('clean.php');
+  return redirect('clean/index.php');
 }
 
 ?>
