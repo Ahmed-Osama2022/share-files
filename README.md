@@ -7,6 +7,13 @@
 <!-- - Project is made to work on port 8000, so make sure it's empty! -->
 - composer is required in order to install the qr generator package!
 
+### Requirements:
+- Please make sure you have installed php-cli for this project in order to work
+- php >= 8.2
+- ```zip extention``` 
+- ```gd extention```
+
+
 ### Download and install requirements
 ```bash
 git clone https://github.com/Ahmed-Osama2022/share-files
@@ -53,13 +60,6 @@ sudo chown -R www-data:$USER /var/www/html/share-files;
 ```bash
 sudo chmod -R g+w /var/www/html/share-files;
 ````
-
-
-### Requirements:
-- Please make sure you have installed php-cli for this project in order to work
-- php >= 8.2
-- ```zip extention``` 
-- ```gd extention```
 
 ### Run:
 - If you have node installed in your system, you can run using:
