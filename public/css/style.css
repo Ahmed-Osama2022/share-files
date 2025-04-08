@@ -96,3 +96,10 @@ nav span {
   box-shadow: 0 0 3px 0 rgb(32, 180, 111);
   /* Custom focus glow */
 }
+
+/* =================================================== */
+
+#deleteBtn a {
+  color: unset;
+  text-decoration: none;
+}

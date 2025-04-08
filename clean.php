@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   <div class="container text-center bg-white py-5 px-3 my-3 shadow-sm rounded-3">
     <h3>Clean page for cleaning the files uploaded to the server</h3>
     <br>
-    <h4>Notes:</h4>
+    <h4 class="text-decoration-underline">Notes:</h4>
 
     <!-- | ============ 1- For the "Upload" Directory && Files ============ | -->
     <p class="text-center mt-3 mt-3 <?= $messages['Dir_style1'] ?>">
