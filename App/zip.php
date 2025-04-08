@@ -31,7 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // $zipFilename = 'download_' . uniqid() . '.zip';
 
-  $zipFilename = 'Download_' . bin2hex(3) . '.zip';
+  //  $zipFilename = 'Download_' . bin2hex(3) . '.zip';
+
+  $zipFilename = 'Download_' . random_int(1000, 10000) . '.zip';
 
   // Or usign timestamp
   // $zipFilename = 'Download_' . date('F_i_s') . '.zip';

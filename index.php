@@ -152,11 +152,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
           <?php endforeach; ?>
           <!-- Download Button -->
           <div class="text-end pt-2 d-flex flex-row align-items-center justify-content-end gap-2">
-            <button type="button" class="btn btn-outline-danger text-end " id="deleteBtn">
+            <button type="button" class="btn btn-outline-danger text-center" id="deleteBtn">
               <a href="clean.php">Delete files</a>
             </button>
 
-            <button type="button" class="btn btn-outline-success text-end" id="downloadBtn">
+            <button type="button" class="btn btn-outline-success text-center" id="downloadBtn">
               Download selected
             </button>
 
