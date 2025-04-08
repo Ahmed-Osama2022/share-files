@@ -27,7 +27,7 @@ if ($client_ip !== '127.0.0.1' && $client_ip !== '::1') {
 $dir1 = basePath('uploads');
 $dir2 = basePath('tmp');
 
-$btn_status  = ''; // '' || 'disabled'
+$btn_status  = 'disabled'; // '' || 'disabled'
 
 // Falsh messages
 $messages = [
