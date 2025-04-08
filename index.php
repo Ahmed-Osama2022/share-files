@@ -13,6 +13,12 @@ include './helpers.php';
 include basePath('App/ip.php');
 include basePath('App/qr_code.php');
 
+
+// TEST: 
+// die(isset($net_status));
+// echo $ip_message;
+// die($ip_message);
+
 // Set upload limits in the script (optional; requires php.ini changes for large uploads)
 // ini_set('post_max_size', '100000000000M');
 // ini_set('upload_max_filesize', '100000000M');
@@ -89,11 +95,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         Send
       </button>
 
-      <!-- Show the QR-code -->
-      <div class="qr-code-wrapper mt-3">
-        <img src='<?= $dataUri ?>' alt='Logo-qr-code' width='100' height='100' />
-        <p class="mt-1">Scan me to join</p>
-      </div>
+      <!-- Show the QR-code; based on the network status -->
+      <?php if ($ip_message === null) : ?>
+        <div class="qr-code-wrapper mt-3">
+          <img src='<?= $dataUri ?>' alt='Logo-qr-code' width='100' height='100' />
+          <p class="mt-1">Scan me to join</p>
+        </div>
+      <?php else: ?>
+        <p class="text-center mt-3" id="ip_message"><?= $ip_message ?></p>
+      <?php endif; ?>
 
 
       <!-- Show the files in the "/uploads" folder in cards-->

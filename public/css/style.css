@@ -30,11 +30,53 @@ nav span {
   /* Text will wrap onto the next line when it exceeds the container */
 }
 
-/* Media queries */
+
+/* ================ NEW: For the Checkbox ================== */
+/* Default state */
+.form-check-input {
+  width: 1.3em;
+  height: 1.3em;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+/* Checked state */
+.form-check-input:checked {
+  background-color: rgb(32, 180, 111);
+  /* Custom checked background */
+  border-color: rgb(32, 180, 111);
+  /* Custom checked border */
+}
+
+/* Focus state */
+.form-check-input:focus {
+  box-shadow: 0 0 3px 0 rgb(32, 180, 111);
+  /* Custom focus glow */
+}
+
+/* =================================================== */
+
+#deleteBtn a {
+  color: unset;
+  text-decoration: none;
+}
+
+#ip_message {
+  font-size: 14px;
+}
+
+
+/* | ================= Media queries ================= |*/
 @media (width < 500px) {
   .file-name {
     width: 70%;
   }
+
+  #ip_message {
+    font-size: 12px;
+  }
+
+
 }
 
 @media (min-width : 992px) and (max-width: 1439px) {
@@ -74,32 +116,4 @@ nav span {
   }
 }
 
-/* ================ NEW: For the Checkbox ================== */
-/* Default state */
-.form-check-input {
-  width: 1.3em;
-  height: 1.3em;
-  margin-top: 1px;
-  margin-bottom: 1px;
-}
-
-/* Checked state */
-.form-check-input:checked {
-  background-color: rgb(32, 180, 111);
-  /* Custom checked background */
-  border-color: rgb(32, 180, 111);
-  /* Custom checked border */
-}
-
-/* Focus state */
-.form-check-input:focus {
-  box-shadow: 0 0 3px 0 rgb(32, 180, 111);
-  /* Custom focus glow */
-}
-
-/* =================================================== */
-
-#deleteBtn a {
-  color: unset;
-  text-decoration: none;
-}
+/* | ================= End Media queries ================= |*/

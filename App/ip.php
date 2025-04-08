@@ -5,6 +5,10 @@ $os = strtolower(PHP_OS);
 // Decalre an embty ip value, to use later in 'qr_code.php' file.
 $ip = '';
 
+// Show the flash message
+$ip_message = null;
+
+
 if (strpos($os, 'win') !== false) {
   // Windows system
   $networkData = shell_exec("ipconfig");
@@ -16,8 +20,7 @@ if (strpos($os, 'win') !== false) {
   // Use a regular expression to extract IPv4 addresses
   preg_match_all('/inet (\d+\.\d+\.\d+\.\d+)/', $networkData, $matches);
 } else {
-  // die("Unsupported operating system.");
-  echo "Sorry, Unsupported operating system to get the ip.";
+  $ip_message = 'Sorry, Unsupported operating system to get the ip.';
 }
 
 // Exclude the loopback address (127.0.0.1) and print valid IP addresses
@@ -30,7 +33,6 @@ if (!empty($ipAddresses)) {
     // echo "IP Address: $ip\n";
   }
 } else {
-  // echo "No valid IP addresses found.\n";
-  // echo "Please make sure you are connected to a network first!\n";
-  echo "No network avaliable to share!<br>Please make sure you are connected to a network first!";
+  // $ip_message = 'No network avaliable to share!<br>Please make sure you are connected to a network first!<br>to show the Qr-code && be able to share to other devices';
+  $ip_message = 'No network avaliable to share!<br>To generate Qr-code, Make sure you are connected to network first!';
 }
