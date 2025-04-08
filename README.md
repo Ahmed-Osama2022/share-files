@@ -57,7 +57,9 @@ sudo chmod -R g+w /var/www/html/share-files;
 
 ### Requirements:
 - Please make sure you have installed php-cli for this project in order to work
-- php >= 7.4
+- php >= 8.2
+- ```zip extention``` 
+- ```gd extention```
 
 ### Run:
 - If you have node installed in your system, you can run using:
