@@ -27,6 +27,10 @@ if ($client_ip !== '127.0.0.1' && $client_ip !== '::1') {
 $dir1 = basePath('uploads');
 $dir2 = basePath('tmp');
 
+// Defines the files array 
+$files1 = []; // For /uploads
+$files2 = []; // for /tmp
+
 $btn_status  = 'disabled'; // '' || 'disabled'
 
 // Falsh messages
@@ -107,16 +111,21 @@ if (!file_exists($dir2)) {
  */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   // Loop through each file/directory
-  foreach ($files1 as $file) {
-    $filePath = $dir1 . DIRECTORY_SEPARATOR . $file;
-    // If it's a file, delete it
-    unlink($filePath);
-    // sleep(3);
+
+  if (count($files1) !== 0) {
+    foreach ($files1 as $file) {
+      $filePath = $dir1 . DIRECTORY_SEPARATOR . $file;
+      // If it's a file, delete it
+      unlink($filePath);
+      // sleep(3);
+    }
   }
 
-  foreach ($files2 as $file) {
-    $filePath = $dir2 . DIRECTORY_SEPARATOR . $file;
-    unlink($filePath);
+  if (count($files2) !== 0) {
+    foreach ($files2 as $file) {
+      $filePath = $dir2 . DIRECTORY_SEPARATOR . $file;
+      unlink($filePath);
+    }
   }
   return redirect('clean.php');
 }
