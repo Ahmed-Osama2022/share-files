@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 ?>
 
 <!-- | =========== Front-End ============== | -->
-<?= loadPartial('head', ['title' => 'Clean Script']) ?>
+<?= loadPartial('head', ['title' => 'Clean Page']) ?>
 
 <?= loadPartial('navbar') ?>
 
