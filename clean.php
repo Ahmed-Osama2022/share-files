@@ -4,7 +4,7 @@
  * This page is responsable for the cleaning the files inside 
  * "/uploads" && "/tmp"
  */
-include '../helpers.php';
+include './helpers.php';
 
 /**
  * Prevent other users on ther server from access this page;
@@ -15,22 +15,11 @@ $client_ip = $_SERVER['REMOTE_ADDR'];
 // echo "Client IP: $client_ip";
 // die();
 
-// if ($client_ip !== '127.0.0.1' && $client_ip !== '::1') {
 if ($client_ip !== '127.0.0.1' && $client_ip !== '::1') {
   // Request NOT from localhost
-  http_response_code(405);
-
-  // Load the template
-  loadPartial('/head', ['title' => 'Clean Script']);
-
-  loadPartial('/error', [
-    'error' => 405
-  ]);
-  echo "\n";
-  echo "</body>";
-  echo "\n";
-  echo "</html>";
-
+  echo "<h1 style='text-align: center; padding: 30px'>
+    Access denied. Only localhost can see this page!
+  </h1>";
   exit;
 }
 
@@ -129,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $filePath = $dir2 . DIRECTORY_SEPARATOR . $file;
     unlink($filePath);
   }
-  return redirect('./index.php');
+  return redirect('clean.php');
 }
 
 ?>
