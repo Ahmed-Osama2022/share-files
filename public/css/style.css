@@ -30,7 +30,6 @@ nav span {
   /* Text will wrap onto the next line when it exceeds the container */
 }
 
-
 /* ================ NEW: For the Checkbox ================== */
 /* Default state */
 .form-check-input {
@@ -55,7 +54,6 @@ nav span {
 }
 
 /* =================================================== */
-
 #deleteBtn a {
   color: unset;
   text-decoration: none;
@@ -64,7 +62,6 @@ nav span {
 #ip_message {
   font-size: 14px;
 }
-
 
 /* | ================= Media queries ================= |*/
 @media (width < 500px) {
@@ -75,8 +72,6 @@ nav span {
   #ip_message {
     font-size: 12px;
   }
-
-
 }
 
 @media (min-width : 992px) and (max-width: 1439px) {

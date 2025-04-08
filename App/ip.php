@@ -8,7 +8,6 @@ $ip = '';
 // Show the flash message
 $ip_message = null;
 
-
 if (strpos($os, 'win') !== false) {
   // Windows system
   $networkData = shell_exec("ipconfig");
@@ -33,6 +32,5 @@ if (!empty($ipAddresses)) {
     // echo "IP Address: $ip\n";
   }
 } else {
-  // $ip_message = 'No network avaliable to share!<br>Please make sure you are connected to a network first!<br>to show the Qr-code && be able to share to other devices';
   $ip_message = 'No network avaliable to share!<br>To generate Qr-code, Make sure you are connected to network first!';
 }
